@@ -9,8 +9,13 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
-    "commander": "^13.1.0",
+    "iso-language-converter": "^1.1.0",
+    "locale-emoji": "^0.3.0",
+    "locale2emoji": "^1.1.1",
     "log-symbols": "^7.0.0",
     "translate": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.2"
   }
 }
