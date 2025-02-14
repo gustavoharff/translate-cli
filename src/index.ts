@@ -4,13 +4,10 @@ import logSymbols from "log-symbols";
 import chalk from "chalk";
 
 program
-  .argument("<text>", "Text to translate")
-  .option("-f, --from <language>", "From language", "en")
-  .option("-t, --to <language>", "To language", "pt")
-  .action(async (str, options) => {
-    const from = options.from;
-    const to = options.to;
-
+  .argument("<from>", "From language. Example: en")
+  .argument("<to>", "To language. Example: es")
+  .argument("<text>", "Text to translate. Example: Hello World")
+  .action(async (from, to, str) => {
     console.log(
       logSymbols.info,
       `Translating ${chalk.bold.cyan(str)} from ${chalk.bold.magenta(
