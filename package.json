@@ -1,0 +1,16 @@
+{
+  "name": "t-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "bun ./src/index.ts",
+    "compile": "bun build src/index.ts --compile --outfile ./dist/t"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "log-symbols": "^7.0.0",
+    "translate": "^3.0.1"
+  }
+}
