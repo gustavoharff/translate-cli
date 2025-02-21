@@ -1,4 +1,4 @@
-# t-cli
+# translate-cli
 
 A command-line interface to translate any text.
 
