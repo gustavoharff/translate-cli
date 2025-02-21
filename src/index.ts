@@ -16,7 +16,11 @@ const rl = readline.createInterface({
 
 const commands = [
   {
-    name: "/switch <from> <to>",
+    name: "/set <from> <to>",
+    description: "Set the translation from and to languages.",
+  },
+  {
+    name: "/switch /s",
     description: "Switch the translation from and to languages.",
   },
   {
@@ -88,11 +92,11 @@ rl.on("line", async (line) => {
     return;
   }
 
-  if (str.startsWith("/switch")) {
+  if (str.startsWith("/set")) {
     const [_, newFrom, newTo] = str.split(" ");
 
     if (!newFrom || !newTo) {
-      console.log(logSymbols.error, "Invalid syntax. Use /switch <from> <to>");
+      console.log(logSymbols.error, "Invalid syntax. Use /set <from> <to>");
       rl.prompt();
       return;
     }
@@ -104,6 +108,19 @@ rl.on("line", async (line) => {
 
     rl.prompt();
     return;
+  }
+
+  if (str === "/switch" || str === "/s") {
+    const from = Config.get<string>("from");
+    const to = Config.get<string>("to");
+
+    Config.set("from", to);
+    Config.set("to", from);
+
+    clear();
+
+    rl.prompt();
+    return
   }
 
   if (!str) {
